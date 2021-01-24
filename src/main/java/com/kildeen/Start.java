@@ -1,7 +1,7 @@
-package com.superbiz.jaxrs;
+package com.kildeen;
 
-import org.apache.catalina.realm.JAASRealm;
-import org.apache.meecrowave.Meecrowave;
+import org.apache.catalina.realm.*;
+import org.apache.meecrowave.*;
 
 public class Start {
     public static void main(String[] args) {

@@ -1,7 +1,7 @@
-package com.superbiz.jaxrs;
+package com.kildeen;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import javax.annotation.*;
+import javax.enterprise.context.*;
 
 @ApplicationScoped
 public class Bootstrap {

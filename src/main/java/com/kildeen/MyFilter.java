@@ -1,8 +1,8 @@
-package com.superbiz.jaxrs;
+package com.kildeen;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import java.io.IOException;
+import javax.servlet.annotation.*;
+import java.io.*;
 
 @WebFilter("/test/*")
 public class MyFilter implements Filter {

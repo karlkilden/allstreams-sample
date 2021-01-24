@@ -1,4 +1,4 @@
-package com.superbiz.jaxrs;
+package com.kildeen;
 
 public class FetchUserRequestModel {
 }

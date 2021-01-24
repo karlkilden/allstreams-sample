@@ -16,14 +16,11 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.superbiz.jaxrs;
+package com.kildeen;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.enterprise.context.*;
+import javax.inject.*;
+import javax.ws.rs.*;
 import static javax.ws.rs.core.MediaType.*;
 
 @Path("test/hello")
