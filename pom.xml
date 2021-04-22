@@ -23,7 +23,7 @@
         <pitest.version>1.4.0</pitest.version>
         <pitest-junit5-plugin.version>0.5</pitest-junit5-plugin.version>
 
-        <junit4.version>4.12</junit4.version>
+        <junit4.version>4.13.1</junit4.version>
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
         <junit.platform.version>1.4.0</junit.platform.version>
 
