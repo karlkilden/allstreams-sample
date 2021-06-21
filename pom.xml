@@ -10,7 +10,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit-jupiter.version>5.7.0</junit-jupiter.version>
-        <assertj.version>3.19.0</assertj.version>
+        <assertj.version>3.20.2</assertj.version>
 
         <meecrowave.version>1.2.10</meecrowave.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
