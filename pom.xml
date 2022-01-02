@@ -5,7 +5,13 @@
     <groupId>com.kildeen</groupId>
     <artifactId>allstreams-sample-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>user-profile</module>
+        <module>statistic</module>
+        <module>directory</module>
+        <module>review</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -15,6 +21,9 @@
         <meecrowave.version>1.2.10</meecrowave.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <mapstruct.version>1.4.1.Final</mapstruct.version>
+
 
         <slf4j.version>1.7.25</slf4j.version>
         <log4j-api.version>2.11.0</log4j-api.version>
@@ -27,33 +36,8 @@
         <junit.jupiter.version>5.4.0</junit.jupiter.version>
         <junit.platform.version>1.4.0</junit.platform.version>
 
-
     </properties>
     <dependencies>
-
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit-jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.meecrowave</groupId>
-            <artifactId>meecrowave-specs-api</artifactId>
-            <version>${meecrowave.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.meecrowave</groupId>
-            <artifactId>meecrowave-core</artifactId>
-            <version>${meecrowave.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-cli</groupId>
-            <artifactId>commons-cli</artifactId>
-            <version>1.4</version>
-        </dependency>
 
         <!-- our test dependencies -->
         <dependency>
@@ -82,7 +66,6 @@
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -93,68 +76,24 @@
                 <version>3.8.1</version>
                 <configuration>
                     <release>14</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                        <!-- other annotation processors -->
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
+
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
             </plugin>
-
-            <plugin>
-                <!--
-                    For starting meecrowave via Maven. Just run
-                    $> mvn clean install meecrowave:run
-                -->
-                <groupId>org.apache.meecrowave</groupId>
-                <artifactId>meecrowave-maven-plugin</artifactId>
-                <version>${meecrowave.version}</version>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>org.apache.meecrowave.runner.Cli</mainClass>
-                            <classpathPrefix>lib/</classpathPrefix>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>3.0.0</version>
-                <configuration>
-                    <mainClass>com.superbiz.jaxrs.Start</mainClass>
-                    <skip>false</skip>
-                </configuration>
-            </plugin>
-
-
         </plugins>
     </build>
+
 </project>
