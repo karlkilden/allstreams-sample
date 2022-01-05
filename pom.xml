@@ -5,7 +5,14 @@
     <groupId>com.kildeen</groupId>
     <artifactId>allstreams-sample-app</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>user-profile</module>
+        <module>statistic</module>
+        <module>directory</module>
+        <module>review</module>
+        <module>allstreams</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -68,7 +75,6 @@
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -79,6 +85,13 @@
                 <version>3.8.1</version>
                 <configuration>
                     <release>14</release>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.4.2.Final</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -136,4 +149,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

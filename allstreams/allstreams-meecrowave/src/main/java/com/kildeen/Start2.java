@@ -3,7 +3,7 @@ package com.kildeen;
 import org.apache.catalina.realm.*;
 import org.apache.meecrowave.*;
 
-public class Start {
+public class Start2 {
     public static void main(String[] args) {
         new Meecrowave(new Meecrowave.Builder().
                 httpPort(8181).
