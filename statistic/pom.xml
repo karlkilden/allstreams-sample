@@ -15,7 +15,6 @@
         <module>statistic-boundary</module>
         <module>statistic-bridge</module>
         <module>statistic-core</module>
-        <module>statistic-integration</module>
     </modules>
 
 </project>
