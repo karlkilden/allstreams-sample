@@ -5,14 +5,12 @@ import org.apache.meecrowave.*;
 
 public class Start {
     public static void main(String[] args) {
-        new Meecrowave(new Meecrowave.Builder() {{
-            setHttpPort(8181);
-            setTomcatScanning(true);
-            setTomcatAutoSetup(true);
-            setRealm(new JAASRealm());
-            user("admin", "secret");
-        }})
-
+        new Meecrowave(new Meecrowave.Builder().
+                httpPort(8181).
+                tomcatScanning(true).
+                tomcatAutoSetup(true).
+                realm(new JAASRealm()).
+                user("admin", "secret"))
                 .bake()
                 .await();
     }
