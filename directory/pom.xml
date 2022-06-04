@@ -12,11 +12,42 @@
     <artifactId>directory</artifactId>
 
     <modules>
-        <module>directory-boundary</module>
         <module>directory-bridge</module>
         <module>directory-core</module>
         <module>directory-adapter</module>
-        <module>directory-db</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>directory-bridge</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>directory-boundary</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>directory-core</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>directory-db</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.kildeen</groupId>
+            <artifactId>lang</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
