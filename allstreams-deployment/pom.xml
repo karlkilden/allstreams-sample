@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>allstreams</artifactId>
+    <artifactId>allstreams-deployment</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>allstreams-meecrowave</module>

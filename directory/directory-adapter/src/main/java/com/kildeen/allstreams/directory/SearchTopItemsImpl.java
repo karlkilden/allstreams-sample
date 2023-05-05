@@ -1,20 +1,23 @@
 package com.kildeen.allstreams.directory;
 
-import com.kildeen.allstreams.*;
+import com.kildeen.allstreams.LongTuple;
+import com.kildeen.allstreams.LongTuples;
 import org.apache.solr.client.solrj.SolrClient;
-import org.eclipse.collections.impl.list.mutable.*;
-import java.util.*;
+import org.apache.solr.client.solrj.SolrQuery;
 
-public class SearchTopTitlesImpl implements SearchTopTitles {
+import java.util.List;
+
+public class SearchTopItemsImpl implements SearchTopItems {
 
     private SolrClient solrClient;
 
-    public SearchTopTitlesImpl(SolrClient solrClient) {
+    public SearchTopItemsImpl(SolrClient solrClient) {
         this.solrClient = solrClient;
     }
-
     @Override
-    public List<LongTuple<String, Integer>> search() {
-        return s
+    public LongTuples<String, Integer> search() {
+        SolrQuery query = new SolrQuery("title:long");
+        query.setFields("title");
+        return new LongTuples<>(List.of(LongTuple.of(100L, "Title", 200)));
     }
 }

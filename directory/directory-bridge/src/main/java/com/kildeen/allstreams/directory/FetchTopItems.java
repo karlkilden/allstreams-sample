@@ -4,7 +4,7 @@ import com.kildeen.allstreams.LongTuples;
 
 import java.util.List;
 
-public interface FetchTopTitles {
+public interface FetchTopItems {
 
-    LongTuples<Long, HighlightsTuple> fetch(List<Long> itemIds);
+    LongTuples<Long, TopItemTuple> fetch(List<Long> itemIds);
 }

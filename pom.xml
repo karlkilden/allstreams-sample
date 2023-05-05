@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kildeen</groupId>
-    <artifactId>allstreams-sample-app</artifactId>
+    <artifactId>allstreams-sample</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>directory</module>
-        <module>allstreams</module>
+        <module>allstreams-deployment</module>
         <module>dependency-bundle</module>
     </modules>
     <packaging>pom</packaging>
@@ -42,6 +42,16 @@
             <dependency>
                 <groupId>com.kildeen</groupId>
                 <artifactId>unit-test-bundle</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>postgres-bundle</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kildeen</groupId>
+                <artifactId>solr-bundle</artifactId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>

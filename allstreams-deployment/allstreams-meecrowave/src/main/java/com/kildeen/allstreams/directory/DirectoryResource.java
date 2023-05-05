@@ -1,6 +1,5 @@
 package com.kildeen.allstreams.directory;
 
-import com.kildeen.allstreams.directory.*;
 import org.apache.solr.client.solrj.SolrClient;
 import org.jdbi.v3.core.Jdbi;
 
@@ -27,5 +26,4 @@ public class DirectoryResource {
     public List<TopTitleDTO> listTopTitles () {
         return listTopItem.list();
     }
-
 }

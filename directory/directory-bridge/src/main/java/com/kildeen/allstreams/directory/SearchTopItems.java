@@ -1,8 +1,7 @@
 package com.kildeen.allstreams.directory;
 
-import com.kildeen.allstreams.*;
-import java.util.*;
+import com.kildeen.allstreams.LongTuples;
 
-public interface SearchTopTitles {
+public interface SearchTopItems {
     LongTuples<String, Integer> search();
 }

@@ -1,2 +1,4 @@
-package com.kildeen.allstreams;public class Test {
+package com.kildeen.allstreams;
+
+public class Test {
 }

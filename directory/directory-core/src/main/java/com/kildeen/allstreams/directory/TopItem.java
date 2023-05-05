@@ -1,10 +1,14 @@
 package com.kildeen.allstreams.directory;
 
-import com.kildeen.allstreams.*;
+import com.kildeen.allstreams.LongTuple;
 
-record TopTitle(long id, String title, int views, Highlights highlights) {
-     TopTitle(LongTuple<String, Integer> titleAndViews, Highlights highlights) {
-         this(titleAndViews.getId(), titleAndViews.getOne(), titleAndViews.getTwo(), highlights);
+record TopItem(long id, String title, int views, Highlights highlights) {
+    TopItem(LongTuple<String, Integer> titleAndViews, Highlights highlights) {
+        this(titleAndViews.getId(), titleAndViews.getOne(), titleAndViews.getTwo(), highlights);
     }
-    public record Highlights(String producer, String rating, String genre) {};
+
+    public record Highlights(String producer, String rating, String genre) {
+    }
+
+    ;
 }

@@ -19,22 +19,34 @@ class EmbeddedSolrContainerTest {
     void name() {
         EmbeddedSolrContainer solrContainer = new EmbeddedSolrContainer(DockerImageName.parse("solr:slim"));
         solrContainer.start();
-        solrContainer.getHost();
-
         SolrClient client = new Http2SolrClient.Builder(solrContainer.getHost2()).build();
         CollectionAdminRequest.Create.createCollection("allstreams", 1, 1);
 
-        Map<String, Object> fieldAttributes = new LinkedHashMap<>();
-        fieldAttributes.put("name", "title");
-        fieldAttributes.put("type", "text_general");
-        fieldAttributes.put("stored", true);
+        Map<String, Object> idField = new LinkedHashMap<>();
+        idField.put("name", "item_id");
+        idField.put("type", "plong");
+        idField.put("stored", true);
+        idField.put("docValues", true);
 
-        SchemaRequest.AddField addFieldUpdateSchemaRequest =
-                new SchemaRequest.AddField(fieldAttributes);
+        Map<String, Object> viewsField = new LinkedHashMap<>();
+        viewsField.put("name", "views");
+        viewsField.put("type", "plong");
+        viewsField.put("stored", true);
+        viewsField.put("docValues", true);
+
+        //SchemaRequest.AddField addTitleReq =
+          //      new SchemaRequest.AddField(titleField);
+
+        SchemaRequest.AddField addIdReq =
+                new SchemaRequest.AddField(idField);
+
+        SchemaRequest.AddField addViewsField =
+                new SchemaRequest.AddField(viewsField);
 
         UpdateRequest r = new UpdateRequest();
         SolrInputDocument document = new SolrInputDocument();
         document.addField("title", "my long ass title");
+        document.addField("item_id", 200L);
 
         SolrInputDocument document2 = new SolrInputDocument();
         document2.addField("title", "wong4u");
@@ -42,12 +54,13 @@ class EmbeddedSolrContainerTest {
         r.add(document2);
         r.setCommitWithin(0);
         try {
-            SchemaResponse.UpdateResponse addFieldResponse = addFieldUpdateSchemaRequest.process(client);
+            SchemaResponse.UpdateResponse addFieldResponse = null;
+            addFieldResponse = addIdReq.process(client);
+            addFieldResponse = addViewsField.process(client);
             SolrPingResponse response = client.ping();
             r.process(client);
             client.commit();
-            SolrQuery query = new SolrQuery("title:long");
-            query.setFields("title");
+            SolrQuery query = new SolrQuery("item_id:200");
             var resp = client.query(query);
 
             System.out.println(response);

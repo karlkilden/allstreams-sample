@@ -16,6 +16,14 @@
             <groupId>com.kildeen</groupId>
             <artifactId>directory-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kildeen</groupId>
+            <artifactId>postgres-bundle</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kildeen</groupId>
+            <artifactId>solr-bundle</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

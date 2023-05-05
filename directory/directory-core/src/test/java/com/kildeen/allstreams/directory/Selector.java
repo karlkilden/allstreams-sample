@@ -1,2 +1,4 @@
-package com.kildeen.allstreams.directory;public class Selector {
+package com.kildeen.allstreams.directory;
+
+public class Selector {
 }
